@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
     PosePublisher::nh = &nhp;
     PosePublisher::initialized = false;
     PosePublisher::stateless = false;
-    PosePublisher::imu_pose = PosePublisher::nh->advertise<geometry_msgs::Quaternion>(PosePublisher::imu_pose_publisher_name, 10);
+    PosePublisher::imu_pose = PosePublisher::nh->advertise<sensor_msgs::Imu>(PosePublisher::imu_pose_publisher_name, 10);
     PosePublisher::init();
     return 0;
 }

@@ -52,14 +52,19 @@ void PosePublisher::imu_callback(const sensor_msgs::Imu::ConstPtr &msg) {
     last_time = time;
     filter_.getOrientation(q0,q1,q2,q3);
     // AHRS Stuff end
-    geometry_msgs::Quaternion calculated_quaternion;
+    sensor_msgs::Imu calculated_quaternion;
     /*Why considering like that?:
      * Proof: https://github.com/ccny-ros-pkg/imu_tools/blob/indigo/imu_filter_madgwick/src/imu_filter_ros.cpp#L297
      * */
-    calculated_quaternion.x = q1;
-    calculated_quaternion.y = q2;
-    calculated_quaternion.z = q3;
-    calculated_quaternion.w =  q0;
+    calculated_quaternion.header.stamp = time;
+    calculated_quaternion.orientation.x = q1;
+    calculated_quaternion.orientation.y = q2;
+    calculated_quaternion.orientation.z = q3;
+    calculated_quaternion.orientation.w =  q0;
+    calculated_quaternion.linear_acceleration.x = lin_acc.x;
+    calculated_quaternion.linear_acceleration.y = lin_acc.y;
+    calculated_quaternion.linear_acceleration.z = lin_acc.z;
+
     /*
      * Writing like this has two reasons
      * 1) You cannot re initialize imu0_pose and publish to it, when done in a loop nothing gets published and also
