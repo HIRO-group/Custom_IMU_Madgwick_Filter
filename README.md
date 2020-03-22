@@ -6,8 +6,9 @@ The assumptions made in this Repo are:
 The world Frame is always ENU which is the default of Gazebo.
 
 Extra Features:
-You can pass custom IMU publisher names and you can output pose to new publisher,
-a crucial feature definitely required in original madgwick filter.
+In the original madgwick filter the input publisher name should be /imu/data_raw and output publisher is /imu/data. 
+But in this implementation You can pass custom IMU publisher names and you can output pose to new publisher,
+a crucial feature definitely required in original madgwick filter. 
 
 Except the extra features, there is no difference between mine and original madgwick
 filter.
