@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>imu_mdgwick_custom</name>
+  <name>custom_imu_madgwick_filter</name>
   <version>0.0.1</version>
   <description>The imu_mdgwick_custom package</description>
 
