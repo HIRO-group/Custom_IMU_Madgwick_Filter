@@ -107,7 +107,6 @@ catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES imu_mdgwick_custom
 #  CATKIN_DEPENDS roscpp rospy std_msgs
-#  DEPENDS system_lib
 )
 
 ###########
